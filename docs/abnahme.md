@@ -57,3 +57,15 @@ Die Kamera bleibt fest. Das Zelt wird stufenweise aufgebaut. Sonne und Mond änd
 - Kein fertiger MP4-Film; der optionale Export ist nicht Bestandteil dieser Web-Umsetzung.
 - Keine Behauptungen über LCP, CLS, INP, Umsatz, Conversion oder Probleme der alten Website. Zielwerte aus dem Briefing bleiben Ziele.
 - Die Bedienung wurde in Chromium geprüft. Ein realer iOS-/Android-Gerätetest und ein vollständiger Screenreader-Audit bleiben vor Livebetrieb sinnvoll; sie werden hier nicht als durchgeführt ausgewiesen.
+
+## Folgeauftrag: öffentliche Veröffentlichung
+
+Auf ausdrücklichen Wunsch des Nutzers wurde das Projekt am 30.09.2026 in einem öffentlichen GitHub-Repository veröffentlicht und über GitHub Pages bereitgestellt. Diese Freigabe ersetzt die ursprüngliche Einschränkung auf lokale Bereitstellung; echter Versand und Zahlungen bleiben ausgeschaltet.
+
+- Repository: https://github.com/kevin1337pro/campingpark-baldeneysee-pitch
+- Live: https://kevin1337pro.github.io/campingpark-baldeneysee-pitch/
+- Quellcode: `main`; veröffentlichte statische Dateien: `gh-pages`.
+- GitHub Pages meldet `built`, öffentlich und HTTPS erzwungen.
+- Zusätzlicher Test der tatsächlichen Live-URL: Startseite, sämtliche Bilder, Animation, Übernahme der Startwerte per URL, alle sechs Anfrageschritte samt Demo-Abschluss, Direktaufrufe von Anfrage/Konzept/Pitch, Noindex und Desktopansicht erfolgreich. Keine fehlgeschlagenen Ressourcenanfragen oder Browser-Laufzeitfehler.
+- Die statische Fassung braucht keinen Next.js-Server. Formulare bleiben im Browser; responsive Bilder nutzen die vorhandenen optimierten Dateien. Noindex wird im HTML gesetzt, da GitHub Pages keine eigenen Response-Header aus `next.config.ts` übernimmt.
+- Erneute Veröffentlichung: `npm run deploy:pages` mit angemeldeter GitHub CLI. Es sind keine Tokens oder Zugangsdaten im Repository enthalten.
