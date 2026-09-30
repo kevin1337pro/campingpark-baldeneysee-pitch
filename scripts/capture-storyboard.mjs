@@ -1,0 +1,4 @@
+import { chromium } from '@playwright/test';
+const browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1440,height:1000}});await page.goto('http://127.0.0.1:3000/');await page.locator('#campingtag').scrollIntoViewIfNeeded();await page.locator('.camping-film').waitFor();await page.getByRole('button',{name:'Noch einmal ansehen'}).click();const scene=page.locator('.camping-scene');
+for(const second of [4,7.8,10,14.7,16.5,20,24]){await page.waitForFunction(target=>Number(document.querySelector('.camping-scene')?.getAttribute('data-time'))>=target,second,{timeout:10000});if(second<24)await page.getByRole('button',{name:'Animation pausieren'}).click();await scene.screenshot({path:`docs/screenshots/storyboard/${String(second).replace('.','-')}-desktop.png`});if(second<24)await page.getByRole('button',{name:'Animation abspielen'}).click();}
+await browser.close();

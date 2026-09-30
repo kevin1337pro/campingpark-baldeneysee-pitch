@@ -1,0 +1,37 @@
+{
+  "name": "campingpark-baldeneysee-pitch",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/booking.test.ts",
+    "test:e2e": "playwright test",
+    "build:pages": "node scripts/build-pages.mjs",
+    "deploy:pages": "node scripts/publish-pages.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.2.8",
+    "@fontsource-variable/manrope": "^5.2.8",
+    "gsap": "3.15.0",
+    "lucide-react": "^0.468.0",
+    "next": "16.3.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "agent-browser": "^0.21.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.7",
+    "sharp": "^0.35.5",
+    "tsx": "^4",
+    "typescript": "^5"
+  }
+}
