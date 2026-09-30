@@ -3,10 +3,14 @@ import { mkdtempSync, readdirSync, rmSync, cpSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 function run(cmd, args, cwd = process.cwd(), capture = false) {
-  const r = spawnSync(cmd, args, {
+  const commandArgs = cmd === "git"
+    ? ["-c", "credential.helper=", "-c", "credential.helper=!gh auth git-credential", ...args]
+    : args;
+  const r = spawnSync(cmd, commandArgs, {
     cwd,
     stdio: capture ? "pipe" : "inherit",
     encoding: "utf8",
+    env: { ...process.env, GIT_TERMINAL_PROMPT: "0" },
   });
   if (r.status !== 0)
     throw new Error(
@@ -51,7 +55,7 @@ try {
   run("git", ["add", "--all"], checkout);
   if (run("git", ["status", "--porcelain"], checkout, true)) {
     const sha = run("git", ["rev-parse", "--short", "HEAD"], source, true);
-    run("git", ["commit", "-m", `Publish demo from ${sha}`], checkout);
+    run("git", ["commit", "--quiet", "-m", `Publish demo from ${sha}`], checkout);
     run("git", ["push", "origin", "HEAD:gh-pages"], checkout);
   } else console.log("GitHub Pages output is already current.");
 } finally {
