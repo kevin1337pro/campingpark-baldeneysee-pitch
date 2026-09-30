@@ -1,5 +1,7 @@
 # Campingpark Baldeneysee · Phinix.Media
 
+**[Live-Demo öffnen](https://kevin1337pro.github.io/campingpark-baldeneysee-pitch/)** · **[Präsentationsroute](https://kevin1337pro.github.io/campingpark-baldeneysee-pitch/pitch/)**
+
 Akquise-Prototyp nach dem beigefügten Arbeitsplan. Responsive Startseite, sechs Schritte zur **Demo-Anfrage**, 24 Sekunden Campinganimation und eine Präsentationsroute für Kevin.
 
 ## Starten
